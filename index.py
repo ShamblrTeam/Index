@@ -86,12 +86,15 @@ if __name__ == '__main__':
             response['worked'] = True
             response['posts'] = []
 
+            print "Working with:"
+            print data_obj 
+
             if 'tag' in data_obj:
                 response['posts'] = tagIndex.getPostsThatHaveTag(data_obj['tag'])
             
             print "Ready to send"
             conn.send(json.dumps(response))
-            conn.shutdown(socket.SHUT_RD)
+            conn.shutdown(socket.SHUT_WR)
             if conn != None:
                 conn.close()
                 conn = None
