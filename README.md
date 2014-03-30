@@ -6,3 +6,4 @@ Run `python index.py`, then you can play around with testing it via input. Press
 
 Run `python test.py` to test the socket.
 
+Eyeballing it, appears to use around ~350 MB of RAM
