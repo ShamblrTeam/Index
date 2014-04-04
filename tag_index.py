@@ -89,8 +89,8 @@ def main():
             print "Working with:"
             print data_obj 
 
-            if 'tag' in data_obj:
-                response['posts'] = tagIndex.getPostsThatHaveTag(data_obj['tag'])
+            if 'query' in data_obj:
+                response['posts'] = tagIndex.getPostsThatHaveTag(data_obj['query'])
             
             print "Ready to send"
             conn.send(json.dumps(response))

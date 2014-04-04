@@ -2,14 +2,18 @@ import socket
 import json
 
 while True:
+    port = 7777
+    if str(raw_input('tag or title?  ')) == 'title':
+        port = 7778
+
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect(('localhost', 7777))
+    s.connect(('localhost', port))
 
     tag = str(raw_input('find word: '))
     if tag == '':
         break
         #send the json request for a socket
-    s.send(json.dumps({"request_type":"tag_search",'tag':tag}))
+    s.send(json.dumps({'query':tag}))
     s.shutdown(socket.SHUT_WR)
 
     #recieve the response
