@@ -31,8 +31,8 @@ class TagIndex:
                     print parts
                     print e
                     """
-        print "Done loading. " + str(num_tags) + " tags loaded."
-        print "There are " + str(len(self.tags)) + ' unique words'
+        print "Done Loading \n Status Report:"
+        print str(num_tags) + " tags loaded over " + str(len(self.tags)) + ' unique words'
         return True
 
     def loadAssociation(self, tag_text, post_id):
@@ -48,7 +48,7 @@ class TagIndex:
         else:
             return self.tags[tag_text]
 
-if __name__ == '__main__':
+def main():
     tagIndex = TagIndex()
     tagIndex.loadTagIndexFromFile('tags.csv')
 
@@ -103,3 +103,6 @@ if __name__ == '__main__':
     except Exception as e:
         print "Exception in main socket loop"
         print e
+
+if __name__ == '__main__':
+    main()
