@@ -12,8 +12,11 @@ while True:
     tag = str(raw_input('find word: '))
     if tag == '':
         break
-        #send the json request for a socket
+
+    # send the json request for a socket
     s.send(json.dumps({'query':tag}))
+
+    # tell the other end of the socket that I'm done writing
     s.shutdown(socket.SHUT_WR)
 
     #recieve the response
