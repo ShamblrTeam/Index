@@ -1,4 +1,5 @@
 import sys
+import getopt
 import json
 import socket
 
@@ -61,16 +62,17 @@ class TitleIndex:
         else:
             return self.tags[tag_text]
 
-def main():
+def main(test_first):
     titleIndex = TitleIndex()
     titleIndex.loadTitleIndexFromFile('titles.csv')
 
-    while True:
-        s = str(raw_input('find word: '))
-        if s == '':
-            break
-        print 'finding : ' + s
-        print titleIndex.getPostsThatHaveWordInTitle(s)
+    if test_first:
+        while True:
+            s = str(raw_input('find word: '))
+            if s == '':
+                break
+            print 'finding : ' + s
+            print titleIndex.getPostsThatHaveWordInTitle(s)
 
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -118,4 +120,16 @@ def main():
         print e
 
 if __name__ == '__main__':
-    main()
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], "t", ["test"])
+    except getopt.GetoptError:
+        print "Failed to get command line arguements"
+
+    # if you want to run manual queries on the index 
+    # before you start the socket loop, run with --test
+    test_first = False
+    for opt, arg in opts:
+        if opt in ('-t','--test'):
+            test_first = True
+
+    main(test_first)
