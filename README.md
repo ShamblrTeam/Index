@@ -1,9 +1,11 @@
 Run with Python 2.7
 
-To get tags, run:  COPY tag TO '/Users/cs585/tags.csv' DELIMITER ',' CSV HEADER;
+To get tags, run:  `COPY tag TO '/Users/cs585/tags.csv' DELIMITER ',' CSV HEADER;` in database.
 
 `python tag_index.py` will load and start the tag index on port 7777
+
 `python title_index.py` will load and start the tag index on port 7778
+
 
 `python tag_index.py --test` loads the data, but then allows you to play around with testing it via input. Press enter on an empty input to start the sockets. (same for `title_index`)
 
