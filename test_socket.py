@@ -33,3 +33,5 @@ while True:
         print e
 
     print data
+    data_obj = json.loads(data)
+    print "Length: " + str(len(data_obj['posts']))
