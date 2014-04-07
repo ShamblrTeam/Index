@@ -14,5 +14,5 @@ Then run: `scp cs585@172.31.40.208:~/tags.csv .` to get the data.
 
 Run `python test_socket.py` to test the socket.
 
-Eyeballing it, appears to use around ~350 MB of RAM for tag index. Title not tested yet at scale.
+Eyeballing it, appears to use around ~650 MB of RAM for tag index. Title not tested yet at scale.
 
