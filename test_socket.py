@@ -6,8 +6,12 @@ while True:
     if str(raw_input('tag or title?  ')) == 'title':
         port = 7778
 
+    host = 'localhost'
+    if str(raw_input('remote or local?  ')) == 'remote':
+        host = 'helix.vis.uky.edu'
+
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect(('localhost', port))
+    s.connect((host, port))
 
     tag = str(raw_input('find word: '))
     if tag == '':
